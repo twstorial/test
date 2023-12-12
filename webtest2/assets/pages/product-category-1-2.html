@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Điện thoại | Chợ Lớn Shop</title>
+    <link rel="stylesheet" href="../css/resetcss.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+
+<body>
+    <script src="../js/main.js"></script>
+
+    <div class="main">
+        <!-- PHẦN ĐẦU -->
+        <header class="header">
+            <div class="grid">
+                <!-- THANH NAV BAR -->
+                <nav class="header__navbar">
+    
+                    <!-- List trái -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-home">
+                            <a href="./index.html">TRANG CHỦ</a>
+                        </li>
+    
+                        <li class="header__navbar-item header__navbar-item-product">
+                            <button onclick="chuyenHuongNgauNhien()">SẢN PHẨM</button>
+                        </li>
+
+                        <li class="header__navbar-item header__navbar-item-advanced-search">
+                            <a href="./advanced-search.html"> TÌM KIẾM NÂNG CAO</a>
+                        </li>
+                    </ul>
+    
+                    <!-- List phải -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-registry">
+                            <a href="./register.html"> Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item-login">
+                            <a href="./login.html"> Đăng nhập</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- HEADER VỚI Ô TÌM KIẾM VÀ LOGO -->
+                <div class="header-with-search">
+                    <!-- LOGO -->
+                    <div class="header__logo">
+                        <img src="../img/logo.jpg" alt="logo" class="header__logo-img">
+                    </div>
+
+                    <!-- THANH TÌM KIẾM -->
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm theo tên">
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- GIỎ HÀNG -->
+                    <div class="header__cart">
+                        <!-- NÚT GIỎ HÀNG -->
+                        <button onclick="toggleCart()" class="header__cart-btn">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        </button>
+                        
+                        <!-- DANH SÁCH GIỎ HÀNG -->
+                        <section id="cart">
+                            <button onclick="closeCart()">ĐÓNG</button>
+                            <h2>GIỎ HÀNG CỦA BẠN</h2>
+                            <ul id="cart-items"></ul>
+                            <p id="total">Tổng cộng: </p>
+                        </section>
+                        <div id="notification"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- PHẦN THÂN -->
+        <div class="container">
+        
+    
+            <h2>ĐIỆN THOẠI</h2>
+            <section id="popular-product">
+                <!-- Sản phẩm 1 -->
+                <div class="product" id="product1">
+                    <figure>
+                        <img src="../img/phone/oppo-a77s.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Oppo A77S </h2>
+                    <p>Giá: 5.190.000 VND</p>
+                    <button onclick="addToCart('Oppo A77S')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./oppo-a77s.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+        
+                <!-- Sản phẩm 2 -->
+                <div class="product" id="product2">
+                    <figure>
+                        <img src="../img/phone/oppo-reno10.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Oppo Reno10</h2>
+                    <p>Giá: 10.490.000 VND</p>
+                    <button onclick="addToCart('Oppo Reno10')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./oppo-reno10.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product" id="product3">
+                    <figure>
+                        <img src="../img/phone/vivo-v29e.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Vivo V29E 8GB 256GB</h2>
+                    <p>Giá: 8.990.000 VND</p>
+                    <button onclick="addToCart('Vivo V29E')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./vivo-v29e.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 4 -->
+                <div class="product" id="product4">
+                    <figure>
+                        <img src="../img/phone/vivo-v27e.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Vivo V27E</h2>
+                    <p>Giá: 7.990.000 VND</p>
+                    <button onclick="addToCart('Vivo V27E')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./vivo-v27e.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+            
+           
+            </section>
+            <!-- SECTION GIỎ HÀNG -->
+            <section id="cart">
+                <!-- Giỏ hàng -->
+                <!-- Nút đóng giỏ hàng -->
+                <button onclick="closeCart()">Đóng giỏ hàng</button>
+                <h2>Giỏ hàng</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Tổng cộng: $0</p>
+                <div id="notification"></div>
+            </section>
+    
+            <!-- SECTION PHÂN TRANG -->
+            <section id="pagination">
+                <div class="page">
+                    <a href="./product-category-1.html">
+                        <button>1</button>
+                    </a>
+                </div>
+    
+                <div class="page">
+                    <a href="./product-category-1-2.html">
+                        <button>2</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- PHẦN CHÂN -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    
+</body>
+
+
+</html>

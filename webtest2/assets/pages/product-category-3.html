@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bàn phím | Chợ Lớn Shop</title>
+    <link rel="stylesheet" href="../css/resetcss.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+
+<body>
+    <script src="../js/main.js"></script>
+
+    <div class="main">
+        <!-- PHẦN ĐẦU -->
+        <header class="header">
+            <div class="grid">
+                <!-- THANH NAV BAR -->
+                <nav class="header__navbar">
+    
+                    <!-- List trái -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-home">
+                            <a href="./index.html">TRANG CHỦ</a>
+                        </li>
+    
+                        <li class="header__navbar-item header__navbar-item-product">
+                            <button onclick="chuyenHuongNgauNhien()">SẢN PHẨM</button>
+                        </li>
+
+                        <li class="header__navbar-item header__navbar-item-advanced-search">
+                            <a href="./advanced-search.html"> TÌM KIẾM NÂNG CAO</a>
+                        </li>
+                    </ul>
+    
+                    <!-- List phải -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-registry">
+                            <a href="./register.html"> Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item-login">
+                            <a href="./login.html"> Đăng nhập</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- HEADER VỚI Ô TÌM KIẾM VÀ LOGO -->
+                <div class="header-with-search">
+                    <!-- LOGO -->
+                    <div class="header__logo">
+                        <img src="../img/logo.jpg" alt="logo" class="header__logo-img">
+                    </div>
+
+                    <!-- THANH TÌM KIẾM -->
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm theo tên">
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- GIỎ HÀNG -->
+                    <div class="header__cart">
+                        <!-- NÚT GIỎ HÀNG -->
+                        <button onclick="toggleCart()" class="header__cart-btn">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        </button>
+                        
+                        <!-- DANH SÁCH GIỎ HÀNG -->
+                        <section id="cart">
+                            <button onclick="closeCart()">ĐÓNG</button>
+                            <h2>GIỎ HÀNG CỦA BẠN</h2>
+                            <ul id="cart-items"></ul>
+                            <p id="total">Tổng cộng: </p>
+                        </section>
+                        <div id="notification"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- PHẦN THÂN -->
+        <div class="container">
+        
+    
+            <h2>BÀN PHÍM</h2>
+            <section id="popular-product">
+                <!-- Sản phẩm 1 -->
+                <div class="product" id="product1">
+                    <figure>
+                        <img src="../img/keyboard/akko-5057b-plus.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Akko 5057B Plus</h2>
+                    <p>Giá: 2.290.000 VND</p>
+                    <button onclick="addToCart('Akko 5057B Plus')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./akko-5057b-plus.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+        
+                <!-- Sản phẩm 2 -->
+                <div class="product" id="product2">
+                    <figure>
+                        <img src="../img/keyboard/akko-5108s.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Akko 5108S Black Pink Jelly Purple</h2>
+                    <p>Giá: 1.490.000 VND</p>
+                    <button onclick="addToCart('Akko 5108S')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./akko-5108s.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product" id="product3">
+                    <figure>
+                        <img src="../img/keyboard/akko-monsgeek-mg108.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Akko MonsGeek MG108 Prunus Lannesiana</h2>
+                    <p>Giá: 1.089.000 VND</p>
+                    <button onclick="addToCart('Akko MonsGeek MG108')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./akko-monsgeek-mg108.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 4 -->
+                <div class="product" id="product4">
+                    <figure>
+                        <img src="../img/keyboard/edra-ek361.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>E-Dra EK361Wv2 Black Red Switch</h2>
+                    <p>Giá: 890.000 VND</p>
+                    <button onclick="addToCart('Edra EK361')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./edra-ek361.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 5 -->
+                <div class="product" id="product5">
+                    <figure>
+                        <img src="../img/keyboard/edra-ek375.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>E-Dra EK375 Pro Beta Red Switch</h2>
+                    <p>Giá: 1.190.000 VND</p>
+                    <button onclick="addToCart('E-Dra EK375')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./edra-ek375.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 6 -->
+                <div class="product" id="product6">
+                    <figure>
+                        <img src="../img/keyboard/edra-ek387l-pink.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>E-Dra EK387L Pink Blue Switch</h2>
+                    <p>Giá: 549.000 VND</p>
+                    <button onclick="addToCart('E-Dra EK387L')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./edra-ek387l-pink.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 7 -->
+                <div class="product" id="product7">
+                    <figure>
+                        <img src="../img/keyboard/razer-blackwidow-v4.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Blackwidow V4 Pro Green Switch</h2>
+                    <p>Giá: 5.990.000 VND</p>
+                    <button onclick="addToCart('Razer Blackwidow V4')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-blackwidow-v4.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 8 -->
+                <div class="product" id="product8">
+                    <figure>
+                        <img src="../img/keyboard/razer-huntsman-mini.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Huntsman Mini Mercury Linear</h2>
+                    <p>Giá: 3.090.000 VND </p>
+                    <button onclick="addToCart('Razer Huntsman Mini')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-huntsman-mini.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+            
+           
+            </section>
+            <!-- SECTION GIỎ HÀNG -->
+            <section id="cart">
+                <!-- Giỏ hàng -->
+                <!-- Nút đóng giỏ hàng -->
+                <button onclick="closeCart()">Đóng giỏ hàng</button>
+                <h2>Giỏ hàng</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Tổng cộng: $0</p>
+                <div id="notification"></div>
+            </section>
+    
+            <!-- SECTION PHÂN TRANG -->
+            <section id="pagination">
+                <div class="page">
+                    <a href="./product-category-3.html">
+                        <button>1</button>
+                    </a>
+                </div>
+    
+                <div class="page">
+                    <a href="./product-category-3-2.html">
+                        <button>2</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- PHẦN CHÂN -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    
+</body>
+
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuột | Chợ Lớn Shop</title>
+    <link rel="stylesheet" href="../css/resetcss.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+
+<body>
+    <script src="../js/main.js"></script>
+
+    <div class="main">
+        <!-- PHẦN ĐẦU -->
+        <header class="header">
+            <div class="grid">
+                <!-- THANH NAV BAR -->
+                <nav class="header__navbar">
+    
+                    <!-- List trái -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-home">
+                            <a href="./index.html">TRANG CHỦ</a>
+                        </li>
+    
+                        <li class="header__navbar-item header__navbar-item-product">
+                            <button onclick="chuyenHuongNgauNhien()">SẢN PHẨM</button>
+                        </li>
+
+                        <li class="header__navbar-item header__navbar-item-advanced-search">
+                            <a href="./advanced-search.html"> TÌM KIẾM NÂNG CAO</a>
+                        </li>
+                    </ul>
+    
+                    <!-- List phải -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-registry">
+                            <a href="./register.html"> Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item-login">
+                            <a href="./login.html"> Đăng nhập</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- HEADER VỚI Ô TÌM KIẾM VÀ LOGO -->
+                <div class="header-with-search">
+                    <!-- LOGO -->
+                    <div class="header__logo">
+                        <img src="../img/logo.jpg" alt="logo" class="header__logo-img">
+                    </div>
+
+                    <!-- THANH TÌM KIẾM -->
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm theo tên">
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- GIỎ HÀNG -->
+                    <div class="header__cart">
+                        <!-- NÚT GIỎ HÀNG -->
+                        <button onclick="toggleCart()" class="header__cart-btn">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        </button>
+                        
+                        <!-- DANH SÁCH GIỎ HÀNG -->
+                        <section id="cart">
+                            <button onclick="closeCart()">ĐÓNG</button>
+                            <h2>GIỎ HÀNG CỦA BẠN</h2>
+                            <ul id="cart-items"></ul>
+                            <p id="total">Tổng cộng: </p>
+                        </section>
+                        <div id="notification"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- PHẦN THÂN -->
+        <div class="container">
+        
+    
+            <h2>CHUỘT</h2>
+            <section id="popular-product">
+                <!-- Sản phẩm 1 -->
+                <div class="product" id="product1">
+                    <figure>
+                        <img src="../img/mouse/corsair-m65.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Corsair M65 RGB ULTRA Black CH-9309411-AP2</h2>
+                    <p>Giá: 1.590.000 VND</p>
+                    <button onclick="addToCart('Corsair M65')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./corsair-m65.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+        
+                <!-- Sản phẩm 2 -->
+                <div class="product" id="product2">
+                    <figure>
+                        <img src="../img/mouse/corsair-sabre.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Corsair Sabre RGB Pro Wireless (CH-9313211-AP)</h2>
+                    <p>Giá: 2.290.000 VND</p>
+                    <button onclick="addToCart('Corsair Sabre')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./corsair-sabre.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product" id="product3">
+                    <figure>
+                        <img src="../img/mouse/logitech-g102.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Logitech G102 LightSync Black</h2>
+                    <p>Giá: 399.000 VND</p>
+                    <button onclick="addToCart('Logitech G102')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./logitech-g102.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 4 -->
+                <div class="product" id="product4">
+                    <figure>
+                        <img src="../img/mouse/logitech-g304.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Logitech G304 Wireless White</h2>
+                    <p>Giá: 780.000 VND</p>
+                    <button onclick="addToCart('Logitech G304')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./logitech-g304.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 5 -->
+                <div class="product" id="product5">
+                    <figure>
+                        <img src="../img/mouse/logitech-g502.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Logitech G502 Hero Lightspeed Wireless</h2>
+                    <p>Giá: 2.490.000 VND</p>
+                    <button onclick="addToCart('Logitech G502')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./logitech-g502.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 6 -->
+                <div class="product" id="product6">
+                    <figure>
+                        <img src="../img/mouse/razer-basilisk-v3-pro.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Basilisk V3 Pro</h2>
+                    <p>Giá: 3.990.000 VND</p>
+                    <button onclick="addToCart('Razer Basilisk V3 Pro')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-basilisk-v3-pro.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 7 -->
+                <div class="product" id="product7">
+                    <figure>
+                        <img src="../img/mouse/razer-cobra-pro.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Cobra Pro</h2>
+                    <p>Giá: 3.390.000 VND</p>
+                    <button onclick="addToCart('Razer Cobra Pro')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-cobra-pro.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 8 -->
+                <div class="product" id="product8">
+                    <figure>
+                        <img src="../img/mouse/razer-orochi-v2.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Orochi V2 Wireless Black</h2>
+                    <p>Giá: 1.190.000 VND </p>
+                    <button onclick="addToCart('Razer Orochi V2')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-orochi-v2.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+            
+           
+            </section>
+            <!-- SECTION GIỎ HÀNG -->
+            <section id="cart">
+                <!-- Giỏ hàng -->
+                <!-- Nút đóng giỏ hàng -->
+                <button onclick="closeCart()">Đóng giỏ hàng</button>
+                <h2>Giỏ hàng</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Tổng cộng: $0</p>
+                <div id="notification"></div>
+            </section>
+    
+            <!-- SECTION PHÂN TRANG -->
+            <section id="pagination">
+                <div class="page">
+                    <a href="./product-category-4.html">
+                        <button>1</button>
+                    </a>
+                </div>
+    
+                <div class="page">
+                    <a href="./product-category-4-2.html">
+                        <button>2</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- PHẦN CHÂN -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    
+</body>
+
+
+</html>

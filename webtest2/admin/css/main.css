@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+    max-width: 100%;
+    height: 70px;
+    z-index: 1;
+}
+
+.logo img {
+    height: 100%; /* Đặt chiều cao của hình ảnh trong logo bằng với chiều cao của thanh navbar */
+}
+
+/* KHUNG HEADER */
+.header {
+    height: 70px;
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* KHUNG THANH NAV BAR */
+.header__navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-color);
+    z-index: 3;
+}
+
+.header__navbar h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* MENU */
+.admin {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.admin ul {
+
+    list-style: none;
+    padding: 0;
+}
+
+.admin li {
+    margin-bottom: 15px;
+}
+
+.admin input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+}
+
+.admin button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: background-color 0.3s;
+}
+
+.admin button:hover {
+    background-color: var(--secondary-color);
+}
+
+.admin a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.admin a:hover {
+    text-decoration: underline;
+}
+
+
+/* Thêm CSS để ẩn danh sách chức năng ban đầu */
+.submenu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu-list.active {
+    display: block;
+    border: 2px solid var(--primary-color); /* Thêm đường viền cho submenu */
+    padding: 10px; /* Khoảng cách giữa nội dung và đường viền */
+    border-radius: 8px; /* Bo tròn góc cho submenu */
+}
+
+.submenu-list li {
+    margin: 10px 0;
+}
+
+.submenu-list a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    transition: color 0.3s;
+    display: block; /* Hiển thị mỗi liên kết là một khối độc lập */
+}
+
+.submenu-list a:hover {
+    color: var(--secondary-color);
+}
+
+
+
+
+/* DÀNH CHO TRANG SỬA THÔNG TIN SẢN PHẨM */
+#product-category, #popular-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* CÁC PHÂN LOẠI class: product-category
+    CÁC SP BÁN CHẠY class: product
+*/
+.product-category, .product {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+/* ĐƯỜNG LINK a */
+.product-category a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu chữ từ phần tử cha (product-category h2) */
+}
+/* CÁC ẢNH CỦA PHÂN LOẠI img
+    CÁC ẢNH CỦA SP BÁN CHẠY img
+*/
+.product-category img, .product img  {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+}
+/* TIÊU ĐỀ CỦA PHÂN LOẠI h2 */
+.product-category h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* HOVER CHO CÁC PHÂN LOẠI VÀ CÁC SP BÁN CHẠY */
+.product-category:hover, .product:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);  
+}
+
+.product-category h2:hover {
+    text-decoration: none;
+}
+
+/* SẢN PHẨM BÁN CHẠY */
+/* CÁC BUTTON SP BÁN CHẠY */
+.product button {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.product-details-btn {
+    color: black;
+    text-decoration: none;
+}
+.product p {
+    font-size: 1.35rem;
+}
+
+
+/* DÀNH CHO TRANG SỬA THÔNG TIN SẢN PHẨM */
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-detail-img {
+    flex: 1; /* Chia phần còn lại của container cho phần hình ảnh sản phẩm */
+    margin-right: 20px; /* Khoảng cách giữa hình ảnh và nội dung */
+}
+
+.product-detail-img img {
+    max-width: 100%;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-detail-content {
+    flex: 0 0 70%; /* Chỉ đặt kích thước cố định và không mở rộng quá giới hạn */
+    max-width: 600px; /* Giảm kích thước tối đa của nội dung */
+    text-align: left; /* Căn văn bản sang trái */
+    border: 2px solid var(--secondary-color); /* Thêm viền cho khung chính */
+    padding: 15px; /* Giảm khoảng cách giữa nội dung và viền */
+    border-radius: 8px; /* Bo tròn góc */
+    margin-right: 15%;
+    margin-top: 50px;
+}
+
+.product-detail-content h2,h3{
+    text-align: center;
+}
+
+.product-info,
+.details,
+.add-to-cart-btn {
+    margin-bottom: 20px; /* Giảm khoảng cách giữa các khung */
+}
+
+.product-info,
+.details {
+    border-bottom: 1px solid #ddd; /* Thêm viền dưới cho các khung thông tin và chi tiết */
+    padding-bottom: 10px; /* Giảm khoảng cách giữa nội dung và viền dưới */
+}
+
+.price {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.order {
+    border: 2px solid var(--primary-color);
+}

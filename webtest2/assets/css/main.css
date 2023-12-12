@@ -1,0 +1,505 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+/* KHUNG HEADER */
+.header {
+    height: 140px;
+    background-color: var(--primary-color);
+}
+/* KHUNG THANH NAV BAR */
+.header__navbar {
+    display: flex;
+    justify-content: space-between;
+}
+/* LIST NAVBAR */
+.header__navbar-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+/* ITEM TRONG LIST NAVBAR */
+.header__navbar-item {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white-color);
+    text-decoration: none;
+}
+.header__navbar-item a {
+    color: white;
+    text-decoration: none;
+    margin-left: 12px;
+}
+.header__navbar-item-registry, .header__navbar-item-login {
+    font-size: 1.25rem;
+}
+.header__navbar-item:last-child {
+    margin-left: 35px;
+}
+
+/* BUTTON RIÊNG CHO NÚT SẢN PHẨM */
+.header__navbar-item button {
+    margin-left: 60px;
+    font-weight: 600;
+}
+.header__navbar-item button:hover {
+    background-color: var(--primary-color);
+}
+
+/* HEADER VỚI THANH TÌM KIẾM */
+.header-with-search {
+    height: 46px;
+    display: flex;
+    align-items: center;
+}
+/* LOGO TRÊN HEADER */
+.header__logo-img {
+    width: 150px;
+    height: 60px;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+/* THANH TÌM KIẾM */
+.header__search {
+    height: 40px;
+    flex:1;
+    background-color: var(--white-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+/* INPUT THANH TÌM KIẾM */
+.header__search-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.7rem;
+    color: var(--text-color);
+    padding: 0 16px;
+}
+/* NÚT TÌM KIẾM */
+.header__search-btn {
+    background-color: var(--primary-color);
+    border-color: white;
+    height: 34px;
+    width: 56px;
+    margin-right: 4px;
+    border-radius: 4px;
+}
+.header__search-btn:hover {
+    background-color: var(--secondary-color);
+}
+.header__search-btn-icon {
+    font-size: 1.8rem;
+    color: var(--white-color);
+}
+
+/* NÚT GIỎ HÀNG */
+.header__cart {
+    z-index: 2;
+    width: 150px;
+    text-align: center;
+}
+.header__cart-icon {
+    font-size: 3rem;
+    color: var(--white-color);
+}
+.header__cart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* DANH SÁCH GIỎ HÀNG */
+#cart {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Đặt giỏ hàng bên phải và ẩn nó khỏi màn hình */
+    width: 400px;
+    background-color: rgb(150, 150, 150);
+    padding: 1.5em;
+    transition: right 0.45s ease; /* Thêm hiệu ứng chuyển động */
+    border: 2px solid white;    /* Thêm viền cho giỏ hàng */
+}
+#cart h2 {
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 2px black;
+}
+#cart p {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+#cart.show {
+    right: 0; /* Hiển thị giỏ hàng khi có class "show" */
+}
+#cart-items {
+    list-style: none;
+    padding: 0;
+    font-size:1.1rem;
+}
+#cart-items li {
+    margin-bottom: 0.5em;
+}
+#notification {
+    display: none;
+    background-color: var(--secondary-color);
+    color: black;
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.decrease-btn, .increase-btn {
+    border-radius: 50%;
+    width: 25px;
+    padding-left: 10px;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+
+
+/* PHÂN TRANG */
+#pagination {
+    display: flex;
+    justify-content: center; /* Căn giữa phân trang */
+}
+.page {
+    margin:  15px; /* Khoảng cách giữa các trang */
+
+}
+.page a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.page button {
+    padding: 6px 14px;
+    margin: 0;
+    font-size: 1.7rem;
+}
+
+
+
+
+/* PHẦN THÂN container */
+.container {
+    min-height: 100vh; /* Đảm bảo container chiếm ít nhất 100% chiều cao của viewport */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+/* SECTION 1: DANH MỤC SẢN PHẨM id: product-category 
+    SECTION 2: SẢN PHẨM BAN CHẠY id: popular-product
+*/
+#product-category, #popular-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* CÁC PHÂN LOẠI class: product-category
+    CÁC SP BÁN CHẠY class: product
+*/
+.product-category, .product {
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+    position: relative;
+}
+/* ĐƯỜNG LINK a */
+.product-category a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit; /* Kế thừa màu chữ từ phần tử cha (product-category h2) */
+}
+/* CÁC ẢNH CỦA PHÂN LOẠI img
+    CÁC ẢNH CỦA SP BÁN CHẠY img
+*/
+.product-category img, .product img  {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
+    margin: 0 auto;
+}
+/* TIÊU ĐỀ CỦA PHÂN LOẠI h2 */
+.product-category h2 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+/* HOVER CHO CÁC PHÂN LOẠI VÀ CÁC SP BÁN CHẠY */
+.product-category:hover, .product:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);  
+}
+
+.product-category h2:hover {
+    text-decoration: none;
+}
+
+/* SẢN PHẨM BÁN CHẠY */
+/* CÁC BUTTON SP BÁN CHẠY */
+.product button {
+    font-size: 1rem;
+    font-weight: 600;
+}
+.product-details-btn {
+    color: black;
+    text-decoration: none;
+}
+.product p {
+    font-size: 1.35rem;
+}
+
+
+
+/* DÀNH CHO TRANG THÔNG TIN SẢN PHẨM */
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-detail-img {
+    flex: 1; /* Chia phần còn lại của container cho phần hình ảnh sản phẩm */
+    margin-right: 20px; /* Khoảng cách giữa hình ảnh và nội dung */
+}
+
+.product-detail-img img {
+    max-width: 100%;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+}
+
+.product-detail-content {
+    flex: 0 0 70%; /* Chỉ đặt kích thước cố định và không mở rộng quá giới hạn */
+    max-width: 600px; /* Giảm kích thước tối đa của nội dung */
+    text-align: left; /* Căn văn bản sang trái */
+    border: 2px solid var(--secondary-color); /* Thêm viền cho khung chính */
+    padding: 15px; /* Giảm khoảng cách giữa nội dung và viền */
+    border-radius: 8px; /* Bo tròn góc */
+    margin-right: 15%;
+    margin-top: 50px;
+}
+
+.product-detail-content h2,h3{
+    text-align: center;
+}
+
+.product-info,
+.details,
+.add-to-cart-btn {
+    margin-bottom: 20px; /* Giảm khoảng cách giữa các khung */
+}
+
+.product-info,
+.details {
+    border-bottom: 1px solid #ddd; /* Thêm viền dưới cho các khung thông tin và chi tiết */
+    padding-bottom: 10px; /* Giảm khoảng cách giữa nội dung và viền dưới */
+}
+
+.price {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.add-to-cart-btn {
+    display: block;
+    margin: auto;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 15px 30%;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.8rem;
+    white-space: nowrap;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+
+/* PHẦN DÀNH CHO TRANG TÌM KIẾM NÂNG CAO */
+/* CSS mới cho phần advanced-search */
+#advancedSearch {
+    background-color: #f2f2f2;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.advanced-search {
+    font-size: 1.4rem;
+}
+#advancedSearch form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#inputContainer,
+#categoryContainer,
+#priceContainer,
+#searchButtonContainer {
+    width: calc(25% - 10px);
+    margin-bottom: 15px;
+}
+
+#inputContainer label,
+#categoryContainer label,
+#priceContainer label,
+#priceValue {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#inputContainer input,
+#categoryContainer select,
+#priceContainer input,
+#searchButton {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#searchButton {
+    margin-top: 15px;
+    width: 50%;
+    height: 100px;
+}
+.search-btn-icon {
+    font-size: 5rem;
+}
+
+#priceContainer input[type="range"] {
+    width: 90%;
+}
+/* output khoảng giá */
+#priceContainer #display {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-weight: 500;
+    border: 2px solid var(--primary-color);
+}
+
+/* Tùy chỉnh giao diện cho ô input range khoảng giá */
+#priceContainer input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.3s;
+}
+#priceContainer input[type="range"]:hover {
+    opacity: 1;
+}
+#priceContainer input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    cursor: pointer;
+}
+
+
+/* PHẦN DÀNH CHO TRANG ĐĂNG NHẬP/ĐĂNG KÝ */
+
+.login, .register {
+    width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h2, .register h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.login ul, .register ul {
+    list-style: none;
+    padding: 0;
+}
+
+.login li, .register li {
+    margin-bottom: 15px;
+}
+
+.login input, .register input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+}
+
+.login button, .register button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: background-color 0.3s;
+}
+
+.login button:hover, .register button:hover {
+    background-color: var(--secondary-color);
+}
+
+.login a, .register a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.login a:hover, .register a:hover {
+    text-decoration: underline;
+}

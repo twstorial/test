@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chợ Lớn Shop</title>
+    <link rel="stylesheet" href="../css/resetcss.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+
+<body>
+    <script src="../js/main.js"></script>
+
+    <div class="main">
+        <!-- PHẦN ĐẦU -->
+        <header class="header">
+            <div class="grid">
+                <!-- THANH NAV BAR -->
+                <nav class="header__navbar">
+    
+                    <!-- List trái -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-home">
+                            <a href="./index.html">TRANG CHỦ</a>
+                        </li>
+    
+                        <li class="header__navbar-item header__navbar-item-product">
+                            <button onclick="chuyenHuongNgauNhien()">SẢN PHẨM</button>
+                        </li>
+
+                        <li class="header__navbar-item header__navbar-item-advanced-search">
+                            <a href="./advanced-search.html"> TÌM KIẾM NÂNG CAO</a>
+                        </li>
+                    </ul>
+    
+                    <!-- List phải -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-registry">
+                            <a href="./register.html"> Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item-login">
+                            <a href="./login.html"> Đăng nhập</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- HEADER VỚI Ô TÌM KIẾM VÀ LOGO -->
+                <div class="header-with-search">
+                    <!-- LOGO -->
+                    <div class="header__logo">
+                        <img src="../img/logo.jpg" alt="logo" class="header__logo-img">
+                    </div>
+
+                    <!-- THANH TÌM KIẾM -->
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm theo tên">
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- GIỎ HÀNG -->
+                    <div class="header__cart">
+                        <!-- NÚT GIỎ HÀNG -->
+                        <button onclick="toggleCart()" class="header__cart-btn">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        </button>
+                        
+                        <!-- DANH SÁCH GIỎ HÀNG -->
+                        <section id="cart">
+                            <button onclick="closeCart()">ĐÓNG</button>
+                            <h2>GIỎ HÀNG CỦA BẠN</h2>
+                            <ul id="cart-items"></ul>
+                            <p id="total">Tổng cộng: </p>
+                        </section>
+                        <div id="notification"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- PHẦN THÂN -->
+        <div class="container">
+            <section class="product-details">
+                <div class="product-detail-img">
+                    <img src="../img/keyboard/rapoo-v700.jpg">
+                </div>
+                <div class="product-detail-content">
+                    <div class="product-info">
+                        <h2>Rapoo V700</h2>
+                        <p class="price">1.590.000 VND</p>
+                    </div>
+                    <div class="details">
+                        <h2>Thông tin chi tiết</h2>
+                        <p>
+                            Thương hiệu	ASUS
+                            <br>Series/Model	AKKO 5075B Plus Blue on White
+                            <br>Layout	75%
+                            <br>Kết nối	3 chế độ kết nối: Dây / Bluetooth 5.0 / 2.4Ghz
+                            <br>(NSX khuyến cáo chỉ nên cắm USB receiver 2.4ghz vào cổng USB 2.0 để được tín hiệu không dây tốt nhất)
+                            <br>Pin	3000mah (Tiêu thụ 12ma / giờ ở chế độ không dây và không bật LED)
+                            <br>LED	Nền RGB (6028 SMD LED) với nhiều chế độ và có cả LED 2 bên hông phím
+                            <br>Hỗ trợ	NKRO / Multimedia / Macro / Khóa phím Win
+                            <br>Hotswap 5 pin TTC socket
+                            <br>Foam tiêu âm	Tích hợp sẵn foam tiêu âm PCB, foam đáy silicon và IXPE switch pad
+                            <br>Kích thước	33 5x 146 x 42 mm
+                            <br>Trọng lượng	~ 1.1Kg
+                            <br>Keycap	PBT Double-Shot, ASA profile
+                            <br>Switch	AKKO Switch v3 (Cream Blue / Cream Yellow)
+                            <br>Phụ kiện	1 sách hướng dẫn sử dụng + 1 dây USB Type-C to USB + 1 USB Receiver 2.4Ghz + 1 Che bụi bàn phím + keycap tặng kèm
+                            <br>Tương thích: Windows / MacOS / Linux. Bàn phím AKKO khi kết nối với MacOS: (Ctrl -> Control | Windows -> Command | Alt -> Option, Mojave OS trở lên sẽ điều chỉnh được thứ tự của các phím này)
+                        </p>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Rapoo V700')">Thêm vào giỏ hàng</button>
+                </div>
+            </section>
+
+
+            <!-- SECTION GIỎ HÀNG -->
+            <section id="cart">
+                <!-- Giỏ hàng -->
+                <!-- Nút đóng giỏ hàng -->
+                <button onclick="closeCart()">Đóng giỏ hàng</button>
+                <h2>Giỏ hàng</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Tổng cộng: $0</p>
+                <div id="notification"></div>
+            </section>
+        </div>
+
+        <!-- PHẦN CHÂN -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+</body>
+
+</html>

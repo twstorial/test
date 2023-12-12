@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chợ Lớn Shop</title>
+    <link rel="stylesheet" href="../css/resetcss.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+</head>
+
+
+<body>
+    <div class="main">
+        <!-- PHẦN ĐẦU -->
+        <header class="header">
+            <div class="grid">
+                <!-- THANH NAV BAR -->
+                <nav class="header__navbar">
+    
+                    <!-- List trái -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-home">
+                            <a href="./index.html">TRANG CHỦ</a>
+                        </li>
+    
+                        <li class="header__navbar-item header__navbar-item-product">
+                            <button onclick="chuyenHuongNgauNhien()">SẢN PHẨM</button>
+                        </li>
+
+                        <li class="header__navbar-item header__navbar-item-advanced-search">
+                            <a href="./advanced-search.html"> TÌM KIẾM NÂNG CAO</a>
+                        </li>
+                    </ul>
+    
+                    <!-- List phải -->
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item-registry">
+                            <a href="./register.html"> Đăng ký</a>
+                        </li>
+                        <li class="header__navbar-item header__navbar-item-login">
+                            <a href="./login.html"> Đăng nhập</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- HEADER VỚI Ô TÌM KIẾM VÀ LOGO -->
+                <div class="header-with-search">
+                    <!-- LOGO -->
+                    <div class="header__logo">
+                        <img src="../img/logo.jpg" alt="logo" class="header__logo-img">
+                    </div>
+
+                    <!-- THANH TÌM KIẾM -->
+                    <div class="header__search">
+                        <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm theo tên">
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- GIỎ HÀNG -->
+                    <div class="header__cart">
+                        <!-- NÚT GIỎ HÀNG -->
+                        <button onclick="toggleCart()" class="header__cart-btn">
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+                        </button>
+                        
+                        <!-- DANH SÁCH GIỎ HÀNG -->
+                        <section id="cart">
+                            <button onclick="closeCart()">ĐÓNG</button>
+                            <h2>GIỎ HÀNG CỦA BẠN</h2>
+                            <ul id="cart-items"></ul>
+                            <p id="total">Tổng cộng: </p>
+                        </section>
+                        <div id="notification"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!-- PHẦN THÂN -->
+        <div class="container">
+            <!-- PHÂN LOẠI SẢN PHẨM -->
+            <h2>DANH MỤC SẢN PHẨM</h2>
+            <section id="product-category">
+                <!-- PHÂN LOẠI 1 -->
+                <div class="product-category">
+                    <a href="./product-category-1.html">
+                        <figure>
+                            <img src="../img/category/product-category-1.jpg" alt="product category 1">
+                        </figure>
+                        <div class="category-content">
+                            <h2>ĐIỆN THOẠI</h2>
+                        </div>
+                    </a>
+                </div>
+    
+                <!-- PHÂN LOẠI 2 -->
+                <div class="product-category">
+                    <a href="./product-category-2.html">
+                        <figure>
+                            <img src="../img/category/product-category-2.jpg"  alt="product category 2">
+                        </figure>
+    
+                        <div class="category-content">
+                            <h2>LAPTOP</h2>
+                        </div>
+                    </a>
+                </div>
+    
+                <!-- PHÂN LOẠI 3 -->
+                <div class="product-category">
+                    <a href="./product-category-3.html">
+                        <figure>
+                            <img src="../img/category/product-category-3.jpg"  alt="product category 3">
+                        </figure>
+    
+                        <div class="category-content">
+                            <h2>BÀN PHÍM</h2>
+                        </div>
+                    </a>
+                </div>
+    
+                <!-- PHÂN LOẠI 4 -->
+                <div class="product-category">
+                    <a href="./product-category-4.html">
+                        <figure>
+                            <img src="../img/category/product-category-4.jpg"  alt="product category 4">
+                        </figure>
+    
+                        <div class="category-content">
+                            <h2>CHUỘT</h2>
+                        </div>
+                    </a>
+                </div>
+            </section>
+    
+            <h2>SẢN PHẨM BÁN CHẠY</h2>
+            <section id="popular-product">
+                <!-- Sản phẩm 1 -->
+                <div class="product" id="product1">
+                    <figure>
+                        <img src="../img/phone/iphone-14-pro-max.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>iPhone 14 Pro Max</h2>
+                    <p>Giá: 26.890.000 VND</p>
+                    <button onclick="addToCart('iPhone 14 Pro Max')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./iphone-14-pro-max.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+        
+                <!-- Sản phẩm 2 -->
+                <div class="product" id="product2">
+                    <figure>
+                        <img src="../img/laptop/macbook-air-m1.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Macbook Air M1</h2>
+                    <p>Giá: 18.990.000 VND</p>
+                    <button onclick="addToCart('Macbook Air M1')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./macbook-air-m1.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product" id="product3">
+                    <figure>
+                        <img src="../img/laptop/macbook-air-m2.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Macbook Air M2</h2>
+                    <p>Giá: 26.490.000 VND</p>
+                    <button onclick="addToCart('Macbook Air M2')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./macbook-air-m2.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 4 -->
+                <div class="product" id="product4">
+                    <figure>
+                        <img src="../img/phone/samsung-galaxy-s23-ultra.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Samsung Galaxy S23 Ultra</h2>
+                    <p>Giá: 22.790.000 VND</p>
+                    <button onclick="addToCart('Samsung Galaxy S23 Ultra')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./samsung-galaxy-s23-ultra.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 5 -->
+                <div class="product" id="product5">
+                    <figure>
+                        <img src="../img/mouse/logitech-g102.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Logitech G102 Light Sync</h2>
+                    <p>Giá: 399.000 VND</p>
+                    <button onclick="addToCart('Logitech G102')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./logitech-g102.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 6 -->
+                <div class="product" id="product6">
+                    <figure>
+                        <img src="../img/keyboard/razer-blackwidow-v4.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Razer Blackwidow V4</h2>
+                    <p>Giá: 5.990.000 VND</p>
+                    <button onclick="addToCart('Razer Blackwidow V4')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./razer-blackwidow-v4.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 7 -->
+                <div class="product" id="product7">
+                    <figure>
+                        <img src="../img/phone/iphone-13.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>iPhone 13 128GB </h2>
+                    <p>Giá: 15.890.000 VND</p>
+                    <button onclick="addToCart('iPhone 13 128GB')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./iphone-13.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+                
+                <!-- Sản phẩm 8 -->
+                <div class="product" id="product8">
+                    <figure>
+                        <img src="../img/laptop/acer-nitro-5.jpg" alt="product.jpg">
+                    </figure>
+                    <h2>Acer Nitro 5</h2>
+                    <p>Giá: 12.990.000 VND </p>
+                    <button onclick="addToCart('Acer Nitro 5')">Thêm vào giỏ hàng</button>
+                    <button>
+                        <a href="./acer-nitro-5.html" class="product-details-btn">Xem chi tiết</a>
+                    </button>
+                </div>
+            
+           
+            </section>
+            <!-- SECTION GIỎ HÀNG -->
+            <section id="cart">
+                <!-- Giỏ hàng -->
+                <!-- Nút đóng giỏ hàng -->
+                <button onclick="closeCart()">Đóng giỏ hàng</button>
+                <h2>Giỏ hàng</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Tổng cộng: 0</p>
+                <div id="notification"></div>
+            </section>
+    
+            <!-- SECTION PHÂN TRANG -->
+            <section id="pagination">
+                <div class="page">
+                    <a href="./index.html">
+                        <button>1</button>
+                    </a>
+                </div>
+    
+                <div class="page">
+                    <a href="./page2.html">
+                        <button>2</button>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+
+
+        <!-- PHẦN CHÂN -->
+        <footer class="footer">
+
+        </footer>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+
+</html>
